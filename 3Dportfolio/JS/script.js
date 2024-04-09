@@ -97,3 +97,20 @@ pages.forEach((_, index) => {
 
     }, (index + 1) * 200 + 2100)
 })
+
+//Отправка письма
+emailjs.init({
+    publicKey: "4LoT-vZIuAEpH6T8E",
+});
+
+
+const sendBtn = document.getElementById('sendBtn');
+
+sendBtn.onmousedown = () => {
+    emailjs.sendForm('service_hxl4im5', 'template_ruwowbu', '#contact-form')
+        .then(() => {
+            alert('Отправлено!');
+        }, (error) => {
+            alert(error);
+        });
+}
